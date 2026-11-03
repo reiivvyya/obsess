@@ -3,442 +3,217 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OBSESSED WITH YOU ❤️</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Amel ❤️</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Playfair+Display:wght@700&family=Poppins:wght@400;600;800&display=swap');
-
 *{box-sizing:border-box}
-
 body{
- margin:0;
- background:#080808;
- color:white;
- font-family:Poppins,sans-serif;
- overflow:hidden;
-}
-
-button{
- cursor:pointer;
- border:0;
- border-radius:40px;
- padding:15px 27px;
- margin:7px;
- font-weight:900;
- font-size:14px;
- transition:.3s;
-}
-
-button:hover{
- transform:scale(1.1) translateY(-4px);
-}
-
-.hidden{display:none!important}
-
-.page{
- position:fixed;
- inset:0;
- display:flex;
- align-items:center;
- justify-content:center;
- padding:20px;
+ margin:0;background:#050505;color:white;
+ font-family:Arial,sans-serif;overflow-x:hidden;
  text-align:center;
- perspective:1000px;
 }
-
+.page{display:none;min-height:100vh;padding:35px 20px;
+ align-items:center;justify-content:center;flex-direction:column}
+.page.active{display:flex}
+h1{color:#ff2020;text-shadow:0 0 15px red,0 0 35px #a00000}
+p{line-height:1.8;color:#eee}
+button{
+ background:#a00000;color:white;border:1px solid red;
+ padding:14px 25px;border-radius:30px;margin:8px;
+ font-size:15px;font-weight:bold;cursor:pointer;
+ box-shadow:0 0 15px #ff000055;
+}
+button:active{transform:scale(.94)}
 .card{
- width:min(100%,550px);
- padding:40px 24px;
- border-radius:25px;
- background:linear-gradient(145deg,#242424,#090909);
- border:1px solid #ff303055;
- box-shadow:0 0 40px #ff000022,0 25px 80px #000;
- animation:enter 1s ease;
+ background:#151010;border:1px solid #8b0000;
+ border-radius:22px;padding:25px;width:min(100%,390px);
+ box-shadow:0 0 30px #a0000033;
 }
-
-@keyframes enter{
- from{opacity:0;transform:rotateX(20deg) translateY(40px)}
- to{opacity:1;transform:none}
-}
-
-h1{
- font-family:'Playfair Display',serif;
- font-size:clamp(40px,10vw,65px);
-}
-
-.red{
- color:#ff2020;
- text-shadow:0 0 15px red,0 0 40px #ff0000;
-}
-
-.white{
- color:white;
-}
-
-.yesBtn{
- background:linear-gradient(135deg,#ff7777,#ff1111);
- color:white;
- box-shadow:0 0 25px red;
-}
-
-.noBtn{
- background:#222;
- color:white;
- border:1px solid #ff3333;
-}
-
-.action{
- background:#ff1515;
- color:white;
- box-shadow:0 0 20px red;
-}
-
-#yesPage{
- background:radial-gradient(circle,#300000,#080808 70%);
-}
-
-#noPage{
- background:#000;
- overflow:hidden;
-}
-
-#noPage .content{
- position:relative;
- z-index:5;
- width:100%;
- max-width:700px;
-}
-
 .heart{
- font-size:clamp(150px,40vw,270px);
- color:red;
- line-height:1;
- cursor:pointer;
- filter:drop-shadow(0 0 15px red)
-        drop-shadow(0 0 40px red)
-        drop-shadow(0 0 80px #ff0000);
- animation:heartbeat 1s infinite;
+ font-size:100px;color:red;
+ text-shadow:0 0 15px red,0 0 45px red;
+ animation:beat 1s infinite;
 }
-
-@keyframes heartbeat{
- 0%,100%{transform:scale(1)}
- 15%{transform:scale(1.16)}
- 30%{transform:scale(1)}
- 45%{transform:scale(1.1)}
-}
-
-.noTitle{
- font-family:Orbitron,sans-serif;
- font-size:clamp(26px,7vw,48px);
- color:#ff1717;
- text-shadow:0 0 15px red,0 0 40px red;
- animation:glow 1.2s infinite alternate;
-}
-
-@keyframes glow{
- to{ text-shadow:0 0 25px red,0 0 65px #ff0000}
-}
-
-.noText{
- color:#ff5555;
- font-weight:800;
- line-height:2;
- text-shadow:0 0 12px red;
-}
-
+@keyframes beat{50%{transform:scale(1.2)}}
+.envelope{font-size:110px;cursor:pointer;animation:float 2s infinite}
+@keyframes float{50%{transform:translateY(-15px)}}
+.small{font-size:12px;color:#aaa}
 .fall{
- position:fixed;
- top:-60px;
- white-space:nowrap;
- color:#ff2222;
- font-family:Orbitron,sans-serif;
- font-weight:900;
- text-shadow:0 0 10px red,0 0 25px red;
- pointer-events:none;
- z-index:3;
- animation:fall linear forwards;
+ position:fixed;top:-30px;color:#ff1010;
+ font-weight:bold;pointer-events:none;
+ animation:drop linear forwards;z-index:5;
+ text-shadow:0 0 10px red;
 }
-
-@keyframes fall{
- to{
-  transform:translateY(115vh) rotate(360deg);
-  opacity:0;
- }
-}
-
-.float{
- position:fixed;
- bottom:-70px;
- color:red;
- font-size:35px;
- text-shadow:0 0 20px red;
- animation:floatUp linear forwards;
- pointer-events:none;
- z-index:2;
-}
-
-@keyframes floatUp{
- to{transform:translateY(-120vh) rotate(360deg);opacity:0}
-}
-
-#yesPage .card{
- border-color:#ff3333;
-}
-
-.small{
- color:#ff9999;
- font-size:12px;
-}
-
-#secret{
- background:#160000;
- border:1px solid red;
- color:white;
-}
-
+@keyframes drop{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+#progress{width:100%;height:7px;background:#333;border-radius:10px}
+#bar{height:7px;width:0;background:red;border-radius:10px}
 </style>
 </head>
-
 <body>
 
-<!-- AUDIO -->
-<audio id="music"
- src="ssstik.io_1793708472255.mp3"
- loop preload="auto"></audio>
+<audio id="music" loop>
+ <source src="lagu.mp3" type="audio/mpeg">
+</audio>
 
-<!-- HOME -->
-<section class="page" id="home">
+<section id="one" class="page active">
+ <div class="small">A PRIVATE MESSAGE FOR SOMEONE SPECIAL</div>
+ <h1>HEY, AMEL...</h1>
+ <p>Someone has prepared something for you.</p>
+ <div class="envelope" onclick="openLetter()">💌</div>
+ <p>Tap the letter to open it.</p>
+ <button onclick="openLetter()">OPEN MY LETTER</button>
+</section>
+
+<section id="two" class="page">
+ <h1>WELCOME, AMEL ❤️</h1>
  <div class="card">
-  <p class="red">♡ A QUESTION FOR YOU ♡</p>
+  <div class="heart">♥</div>
+  <h2>YOU ARE SPECIAL.</h2>
+  <p>Di antara banyak orang di dunia, ada satu orang yang selalu punya tempat istimewa.</p>
+  <p>Dan orang itu adalah kamu, Amel.</p>
+ </div>
+ <button onclick="go('three')">NEXT SECRET →</button>
+</section>
 
-  <h1>Do you love me?</h1>
+<section id="three" class="page">
+ <h1>HOW MUCH DO YOU KNOW?</h1>
+ <div class="card">
+  <p>Siapa orang yang sedang dibuatkan website ini?</p>
+  <button onclick="correct()">AMEL ❤️</button>
+  <button onclick="wrong()">ORANG LAIN</button>
+  <p id="answer"></p>
+ </div>
+</section>
 
+<section id="four" class="page">
+ <h1>ONE LITTLE QUESTION...</h1>
+ <div class="card">
+  <div class="heart">♥</div>
+  <h2>AMEL, DO YOU LOVE ME?</h2>
+  <button onclick="yes()">YES, OF COURSE ❤️</button>
+  <button onclick="no()">NO...</button>
+ </div>
+</section>
+
+<section id="five" class="page">
+ <h1>YOU SAID YES?!</h1>
+ <div class="heart">❤️</div>
+ <div class="card">
+  <h2>AMEL, YOU'RE MY FAVORITE PERSON.</h2>
+  <p>Kalau aku bisa memilih lagi, aku tetap ingin mengenal kamu.</p>
+  <p>Aku suka hal-hal kecil tentang kamu. Cara kamu berbicara, bercanda, dan menjadi diri sendiri.</p>
+  <button onclick="go('six')">UNLOCK ANOTHER MESSAGE</button>
+ </div>
+</section>
+
+<section id="six" class="page">
+ <h1>SECRET MESSAGE 🔐</h1>
+ <div class="card">
+  <p id="secret">Tekan tombol untuk membuka pesan rahasia.</p>
+  <button onclick="secretMessage()">OPEN SECRET</button>
+  <button onclick="secretMessage()">ANOTHER ONE</button>
+  <button onclick="go('seven')">FINAL LETTER →</button>
+ </div>
+</section>
+
+<section id="seven" class="page">
+ <h1>MY LETTER FOR AMEL</h1>
+ <div class="card">
   <p>
-   I have something to ask you...<br>
-   Please choose carefully. ❤️
+   Dear Amel,<br><br>
+   Aku mungkin nggak selalu bisa menemukan kata-kata
+   yang tepat untuk menjelaskan betapa berharganya kamu.
+   Tapi aku ingin kamu tahu kalau kehadiranmu membuat
+   banyak hari terasa lebih menyenangkan.<br><br>
+   Terima kasih sudah menjadi dirimu sendiri.
+   Aku nggak butuh kamu menjadi sempurna.
+   Aku cuma ingin kita terus saling mengenal,
+   saling menghargai, dan saling menjaga.<br><br>
+   You are my favorite person. ❤️
   </p>
-
-  <button class="yesBtn" onclick="chooseYes()">YES ❤️</button>
-  <button class="noBtn" onclick="chooseNo()">NO</button>
-
-  <p class="small">Made with a thousand feelings.</p>
+  <div class="heart">♥</div>
+  <h2>ALWAYS YOURS, AMEL.</h2>
+  <button onclick="go('one')">READ AGAIN ↻</button>
  </div>
 </section>
 
-<!-- YES -->
-<section class="page hidden" id="yesPage">
+<section id="eight" class="page">
+ <h1>KENAPA NO, AMEL? ❤️</h1>
+ <div class="heart">♥</div>
  <div class="card">
-  <div class="heart">❤️</div>
-
-  <h1 class="red" id="yesTitle">REALLY?!</h1>
-
-  <p id="yesMessage">
-   You're my favorite person.
-   I hope you know how special you are.
-  </p>
-
-  <button class="yesBtn" onclick="nextYes()">
-   NEXT MESSAGE ❤️
-  </button>
-
-  <p class="small" id="yesNumber">1 / 7</p>
- </div>
-</section>
-
-<!-- NO -->
-<section class="page hidden" id="noPage">
-
- <div class="content">
-
-  <h1 class="noTitle" id="noTitle">
-   KENAPA NO SAYANG?
-  </h1>
-
-  <div class="heart" onclick="moreLove()">❤️</div>
-
-  <p class="noText">
-   AKU TIDAK INGIN BIARKAN KAU PERGI...<br>
-   PILIH YES, GUA CINTA SAMA LO!!<br>
-   I LOVE YOU SO MUCH ❤️
-  </p>
-
-  <button class="action" onclick="moreLove()">
-   PENCET LAGI SAYANG ❤️
-  </button>
-
-  <br>
-
-  <button class="noBtn" onclick="secretMessage()">
-   SECRET MESSAGE
-  </button>
-
-  <p id="counter" class="red">
-   LOVE LEVEL: INFINITY
-  </p>
-
-  <p class="small" id="musicStatus">
-   ♫ ANGEL — RADIO EDIT
-  </p>
-
+  <h2>ARE YOU SURE?</h2>
+  <p>Jangan buru-buru, Amel. Masih ada banyak pesan yang belum kamu buka.</p>
+  <button onclick="noSecret()">TAP FOR SURPRISE</button>
+  <p id="noText"></p>
+  <button onclick="go('five')">OKAY, I LOVE YOU ❤️</button>
  </div>
 </section>
 
 <script>
-
-let yesIndex=0;
-let clicks=0;
-
-const yesMessages=[
-"Kamu adalah salah satu hal terbaik yang pernah hadir dalam hariku. ❤️",
-"Aku suka setiap obrolan kecil kita, bahkan yang nggak penting sekalipun.",
-"Kalau aku bisa memilih notifikasi favorit, pasti notifikasi dari kamu.",
-"Aku ingin menjadi seseorang yang selalu bisa mendengarkan cerita kamu.",
-"Semoga kamu selalu punya alasan untuk tersenyum setiap hari.",
-"YOU ARE MY FAVORITE PERSON. Aku nggak akan bosan bilang itu.",
-"FINAL MESSAGE: I LOVE YOU MORE THAN WORDS CAN SAY. ❤️"
+const pages=document.querySelectorAll('.page');
+function go(id){
+ pages.forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo(0,0);
+}
+function openLetter(){
+ document.getElementById('music').play().catch(()=>{});
+ go('two');
+}
+function correct(){
+ document.getElementById('answer').innerText=
+ "BENARRR!! JELAS AMEL LAH ❤️";
+ setTimeout(()=>go('four'),1200);
+}
+function wrong(){
+ document.getElementById('answer').innerText=
+ "SALAHH! JAWABANNYA AMEL 😭";
+}
+function yes(){
+ go('five');
+ rain();
+}
+const secrets=[
+ "Amel, kamu punya tempat spesial yang nggak bisa digantikan.",
+ "Satu pesan darimu bisa bikin hariku lebih baik.",
+ "Aku suka semua momen kecil yang kita punya.",
+ "Kamu nggak harus sempurna untuk menjadi istimewa.",
+ "Kalau hari kamu berat, semoga aku bisa jadi tempat cerita.",
+ "I CHOOSE YOU, AMEL. ❤️",
+ "Kamu adalah salah satu hal terbaik yang aku kenal."
 ];
-
-const yesTitles=[
-"REALLY?!",
-"AWESOME ❤️",
-"MY FAVORITE",
-"ONLY YOU",
-"ALWAYS YOU",
-"I LOVE YOU",
-"FOREVER ❤️"
-];
-
-function chooseYes(){
- document.getElementById("home").classList.add("hidden");
- document.getElementById("yesPage").classList.remove("hidden");
-}
-
-function nextYes(){
- yesIndex++;
-
- if(yesIndex>=yesMessages.length) yesIndex=0;
-
- document.getElementById("yesTitle").innerText=yesTitles[yesIndex];
- document.getElementById("yesMessage").innerText=yesMessages[yesIndex];
- document.getElementById("yesNumber").innerText=
- (yesIndex+1)+" / 7";
-}
-
-function makeFall(){
- const words=[
- "LOVE YOU ❤️",
- "KENAPA NO SAYANG?",
- "PILIH YES, GUA CINTA SAMA LO!!",
- "JANGAN PERGI",
- "I LOVE YOU",
- "ONLY YOU",
- "AKU TIDAK INGIN BIARKAN KAU PERGI",
- "YOU ARE MY FAVORITE",
- "SAYANGGG ❤️",
- "OBSESSED WITH YOU",
- "PLEASE SAY YES"
- ];
-
- let el=document.createElement("div");
- el.className="fall";
- el.innerText=words[Math.floor(Math.random()*words.length)];
-
- el.style.left=Math.random()*95+"vw";
- el.style.fontSize=(12+Math.random()*19)+"px";
- el.style.animationDuration=(3+Math.random()*5)+"s";
-
- document.body.appendChild(el);
-
- setTimeout(()=>el.remove(),9000);
-}
-
-function makeFloat(){
- let el=document.createElement("div");
- el.className="float";
- el.innerText=["❤️","💗","♥","💕"][Math.floor(Math.random()*4)];
-
- el.style.left=Math.random()*100+"vw";
- el.style.animationDuration=(4+Math.random()*5)+"s";
-
- document.body.appendChild(el);
-
- setTimeout(()=>el.remove(),10000);
-}
-
-function burst(){
- for(let i=0;i<35;i++){
-  setTimeout(makeFall,i*45);
-  setTimeout(makeFloat,i*65);
- }
-}
-
-let rainInterval=null;
-
-function chooseNo(){
- document.getElementById("home").classList.add("hidden");
- document.getElementById("noPage").classList.remove("hidden");
-
- burst();
-
- if(!rainInterval){
-  rainInterval=setInterval(()=>{
-   makeFall();
-   if(Math.random()>.4)makeFloat();
-  },160);
- }
-
- let audio=document.getElementById("music");
-
- audio.play().then(()=>{
-  document.getElementById("musicStatus").innerText=
-  "♫ NOW PLAYING — ANGEL RADIO EDIT ❤️";
- }).catch(()=>{
-  document.getElementById("musicStatus").innerText=
-  "Tekan layar sekali lagi untuk memulai musik.";
- });
-}
-
-function moreLove(){
- clicks++;
-
- burst();
-
- const titles=[
- "KENAPA NO SAYANG?",
- "YAKIN NO NIH?!",
- "PILIH YES, GUA CINTA SAMA LO!!",
- "PLEASE SAY YES ❤️",
- "AKU MASIH DI SINI",
- "LOVE YOU MORE",
- "JANGAN PERGI DULU"
- ];
-
- document.getElementById("noTitle").innerText=
- titles[clicks%titles.length];
-
- document.getElementById("counter").innerText=
- "LOVE LEVEL: ∞ × "+clicks;
-
- document.querySelector("#noPage .heart").animate([
-  {transform:"scale(1)"},
-  {transform:"scale(1.35)"},
-  {transform:"scale(1)"}
- ],{duration:500});
-}
-
+let si=0;
 function secretMessage(){
- const messages=[
- "SECRET: You're someone worth appreciating. ❤️",
- "Psst... I hope you smile today.",
- "A thousand hearts, one favorite person.",
- "HEY YOU! YOU ARE SPECIAL.",
- "MY FAVORITE PART OF EVERY DAY IS TALKING TO YOU."
- ];
-
- alert(messages[Math.floor(Math.random()*messages.length)]);
+ document.getElementById('secret').innerText=secrets[si%secrets.length];
+ si++;
+ rain();
 }
-
+const noSecrets=[
+ "AMELLL, MASIH ADA PESAN BUAT KAMU ❤️",
+ "KAMU TETAP SPESIAL, TAU NGGAK?",
+ "ONE MORE SECRET: I LOVE YOUR SMILE.",
+ "JANGAN LUPA BAHAGIA HARI INI.",
+ "YOU'RE MY FAVORITE NOTIFICATION."
+];
+let ni=0;
+function noSecret(){
+ document.getElementById('noText').innerText=noSecrets[ni%noSecrets.length];
+ ni++;
+ rain();
+}
+function no(){go('eight');rain()}
+function rain(){
+ for(let i=0;i<35;i++){
+  let e=document.createElement('div');
+  e.className='fall';
+  e.innerText=['LOVE YOU ❤️','AMEL ♥','I LOVE YOU','♥','MY FAVORITE'][Math.floor(Math.random()*5)];
+  e.style.left=Math.random()*100+'vw';
+  e.style.animationDuration=(2+Math.random()*4)+'s';
+  e.style.fontSize=(14+Math.random()*15)+'px';
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),6500);
+ }
+}
 </script>
 </body>
 </html>
