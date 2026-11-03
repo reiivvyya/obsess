@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Do You Love Me? ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;700;800&display=swap');
+
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ min-height:100vh;
+ overflow:hidden;
+ color:white;
+ font-family:'DM Sans',sans-serif;
+ background:radial-gradient(circle at center,#632347,#24102c,#090711);
+ display:grid;
+ place-items:center;
+}
+
+.panel{
+ width:90%;
+ max-width:570px;
+ padding:35px 22px;
+ text-align:center;
+ border:1px solid #ffffff40;
+ border-radius:28px;
+ background:#ffffff13;
+ backdrop-filter:blur(16px);
+ box-shadow:0 20px 80px #0008,inset 0 1px #ffffff40;
+ animation:appear .8s;
+}
+
+@keyframes appear{
+ from{opacity:0;transform:scale(.7) rotateX(15deg)}
+ to{opacity:1;transform:scale(1)}
+}
+
+h1{
+ font-family:'Playfair Display',serif;
+ font-size:clamp(36px,9vw,58px);
+ text-shadow:0 0 20px #ff438c;
+}
+
+.heart{
+ font-size:90px;
+ animation:beat 1s infinite;
+ filter:drop-shadow(0 0 20px #ff2474);
+}
+
+@keyframes beat{
+ 0%,100%{transform:scale(1)}
+ 50%{transform:scale(1.2)}
+}
+
+p{
+ line-height:1.8;
+ color:#ffe0ed;
+}
+
+button{
+ border:0;
+ border-radius:30px;
+ padding:15px 30px;
+ font-size:16px;
+ font-weight:bold;
+ margin:8px;
+ cursor:pointer;
+ transition:.3s;
+}
+
+button:hover{transform:scale(1.1)}
+
+.yes{
+ background:linear-gradient(135deg,#ffb1d0,#ff438c);
+ color:#460d28;
+ box-shadow:0 0 20px #ff438c66;
+}
+
+.no{
+ background:#ffffff20;
+ color:white;
+ border:1px solid #ffffff80;
+}
+
+.next{
+ background:#ff438c;
+ color:white;
+}
+
+.hidden{display:none!important}
+
+/* YES PAGE */
+
+#yesPage,#yesLast{
+ position:relative;
+ z-index:2;
+}
+
+/* NO PAGE */
+
+#noPage{
+ position:fixed;
+ inset:0;
+ display:grid;
+ place-items:center;
+ background:radial-gradient(circle,#8e174b,#350d34,#090711);
+ overflow:hidden;
+ text-align:center;
+}
+
+#rain{
+ position:absolute;
+ inset:0;
+ overflow:hidden;
+ pointer-events:none;
+}
+
+.fall{
+ position:absolute;
+ top:-100px;
+ color:#ff9cbe;
+ font-weight:800;
+ white-space:nowrap;
+ text-shadow:0 0 12px #ff176b,0 0 25px #ff176b;
+ animation:fall linear infinite;
+}
+
+@keyframes fall{
+ to{transform:translateY(120vh) rotate(360deg)}
+}
+
+.floatHeart{
+ position:absolute;
+ bottom:-60px;
+ color:#ff438c;
+ text-shadow:0 0 20px #ff176b;
+ animation:rise linear infinite;
+}
+
+@keyframes rise{
+ to{
+  transform:translateY(-120vh) rotate(360deg);
+  opacity:0;
+ }
+}
+
+.center{
+ position:relative;
+ z-index:3;
+ width:100%;
+ padding:15px;
+}
+
+.bigHeart{
+ font-size:clamp(180px,45vw,320px);
+ line-height:1;
+ color:#ff285f;
+ text-shadow:
+ 0 0 15px #ff285f,
+ 0 0 45px #ff174f,
+ 0 0 100px #ff176b,
+ 0 0 150px #ff438c;
+ animation:beat 1s infinite;
+}
+
+.center h2{
+ font-family:'Playfair Display',serif;
+ font-size:clamp(26px,7vw,48px);
+ text-shadow:0 0 20px #ff1b70;
+}
+
+.center p{
+ font-weight:800;
+ font-size:clamp(12px,3.5vw,18px);
+}
+
+@media(max-width:400px){
+ .panel{padding:28px 16px}
+ button{padding:13px 24px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HALAMAN UTAMA -->
+
+<section id="start" class="panel">
+
+ <div>♡ A LITTLE QUESTION FOR YOU ♡</div>
+
+ <div class="heart">💗</div>
+
+ <h1>Do you love me?</h1>
+
+ <p>
+ Be honest with me...
+ I have something special for you.
+ </p>
+
+ <button class="yes" onclick="chooseYes()">
+ YES ♡
+ </button>
+
+ <button class="no" onclick="chooseNo()">
+ NO
+ </button>
+
+ <p>made with too much love ✦</p>
+
+</section>
+
+
+<!-- JIKA MEMILIH YES -->
+
+<section id="yesPage" class="panel hidden">
+
+ <div class="heart">💞</div>
+
+ <h1>I KNEW IT!</h1>
+
+ <p>
+ You're my favorite person.
+ <br><br>
+ If I had to choose again,
+ I would still choose you.
+ <br><br>
+ I love your smile, your laugh,
+ your random stories, and every little
+ thing that makes you YOU.
+ <br><br>
+ YOU ARE MY FAVORITE NOTIFICATION. ♡
+ </p>
+
+ <button class="next" onclick="nextPage()">
+ NEXT, MY LOVE ✨
+ </button>
+
+</section>
+
+
+<!-- HALAMAN YES KEDUA -->
+
+<section id="yesLast" class="panel hidden">
+
+ <div class="heart">❤️‍🔥</div>
+
+ <h1>ONLY YOU</h1>
+
+ <p>
+ I want to be the reason behind your smile.
+ <br><br>
+ I want to hear your random stories.
+ <br><br>
+ I want to make beautiful memories with you.
+ <br><br>
+ Every day, every moment,
+ I will keep choosing you.
+ <br><br>
+ <b>I LOVE YOU MORE THAN WORDS CAN SAY.</b>
+ </p>
+
+ <button class="next" onclick="home()">
+ REPLAY ♡
+ </button>
+
+</section>
+
+
+<!-- JIKA MEMILIH NO -->
+
+<section id="noPage" class="hidden">
+
+ <div id="rain"></div>
+
+ <div class="center">
+
+  <div class="bigHeart">♥</div>
+
+  <h2>KENAPA NO SAYANG?</h2>
+
+  <p>
+   AKU TIDAK INGIN BIARKAN KAU PERGI ♡
+  </p>
+
+  <button class="no" onclick="home()">
+   COBA PILIH LAGI? ↻
+  </button>
+
+ </div>
+
+</section>
+
+
+<!-- AUDIO -->
+
+<audio
+ id="song"
+ src="ssstik.io_1793708472255.mp3"
+ preload="auto">
+</audio>
+
+
+<script>
+
+// DAFTAR HALAMAN
+
+const pages=[
+ "start",
+ "yesPage",
+ "yesLast",
+ "noPage"
+];
+
+
+// PINDAH HALAMAN
+
+function show(id){
+
+ pages.forEach(page=>{
+
+  document
+  .getElementById(page)
+  .classList.toggle("hidden",page!==id);
+
+ });
+
+}
+
+
+// TOMBOL YES
+
+function chooseYes(){
+
+ show("yesPage");
+
+}
+
+
+// NEXT YES
+
+function nextPage(){
+
+ show("yesLast");
+
+}
+
+
+// TOMBOL NO
+
+function chooseNo(){
+
+ show("noPage");
+
+ makeRain();
+
+ const song=document.getElementById("song");
+
+ song.currentTime=0;
+
+ song.play().catch(()=>{
+  console.log("Audio playback dibatasi browser.");
+ });
+
+}
+
+
+// KEMBALI KE AWAL
+
+function home(){
+
+ const song=document.getElementById("song");
+
+ song.pause();
+
+ song.currentTime=0;
+
+ show("start");
+
+}
+
+
+// ANIMASI TULISAN JATUH
+
+function makeRain(){
+
+ const rain=document.getElementById("rain");
+
+ if(rain.dataset.ready)return;
+
+ rain.dataset.ready="yes";
+
+ const words=[
+
+  "LOVE YOUU",
+
+  "KENAPA NO SAYANG?",
+
+  "AKU TIDAK INGIN BIARKAN KAU PERGI",
+
+  "LOVE YOU ♡",
+
+  "SAYANGGG",
+
+  "I LOVE YOU",
+
+  "PLEASE SAY YES",
+
+  "LOVE YOU MORE",
+
+  "YOU ARE MINE ♡"
+
+ ];
+
+
+ // TULISAN BERJATUHAN
+
+ for(let i=0;i<65;i++){
+
+  const el=document.createElement("div");
+
+  el.className="fall";
+
+  el.textContent=
+  words[i%words.length];
+
+  el.style.left=
+  Math.random()*100+"%";
+
+  el.style.animationDuration=
+  (5+Math.random()*8)+"s";
+
+  el.style.animationDelay=
+  (-Math.random()*12)+"s";
+
+  el.style.fontSize=
+  (12+Math.random()*14)+"px";
+
+  rain.appendChild(el);
+
+ }
+
+
+ // LOVE BERTERBANGAN
+
+ for(let i=0;i<30;i++){
+
+  const el=document.createElement("div");
+
+  el.className="floatHeart";
+
+  el.textContent="♥";
+
+  el.style.left=
+  Math.random()*100+"%";
+
+  el.style.animationDuration=
+  (6+Math.random()*8)+"s";
+
+  el.style.animationDelay=
+  (-Math.random()*12)+"s";
+
+  el.style.fontSize=
+  (20+Math.random()*35)+"px";
+
+  rain.appendChild(el);
+
+ }
+
+}
+
+</script>
+
+</body>
+</html>
