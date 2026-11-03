@@ -1,480 +1,375 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Do You Love Me? ♡</title>
-
+<title>Only For You ♡</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700;800&family=Pacifico&display=swap');
 
 *{box-sizing:border-box}
-
 body{
- margin:0;
- min-height:100vh;
- overflow:hidden;
- color:white;
- font-family:'DM Sans',sans-serif;
- background:radial-gradient(circle at center,#632347,#24102c,#090711);
- display:grid;
- place-items:center;
+ margin:0;min-height:100vh;overflow-x:hidden;
+ font-family:Quicksand,sans-serif;color:white;text-align:center;
+ background:radial-gradient(circle at top,#55306e,#21152f 55%,#100d1c);
 }
-
-.panel{
- width:90%;
- max-width:570px;
- padding:35px 22px;
- text-align:center;
- border:1px solid #ffffff40;
- border-radius:28px;
- background:#ffffff13;
- backdrop-filter:blur(16px);
- box-shadow:0 20px 80px #0008,inset 0 1px #ffffff40;
- animation:appear .8s;
-}
-
-@keyframes appear{
- from{opacity:0;transform:scale(.7) rotateX(15deg)}
- to{opacity:1;transform:scale(1)}
-}
-
-h1{
- font-family:'Playfair Display',serif;
- font-size:clamp(36px,9vw,58px);
- text-shadow:0 0 20px #ff438c;
-}
-
-.heart{
- font-size:90px;
- animation:beat 1s infinite;
- filter:drop-shadow(0 0 20px #ff2474);
-}
-
-@keyframes beat{
- 0%,100%{transform:scale(1)}
- 50%{transform:scale(1.2)}
-}
-
-p{
- line-height:1.8;
- color:#ffe0ed;
-}
-
 button{
- border:0;
- border-radius:30px;
- padding:15px 30px;
- font-size:16px;
- font-weight:bold;
- margin:8px;
- cursor:pointer;
- transition:.3s;
+ border:0;cursor:pointer;font-family:inherit;font-weight:800;
+ padding:13px 22px;border-radius:30px;margin:7px;
+ color:#402044;background:#fff0fa;transition:.25s;
+ box-shadow:0 5px 18px #0003;
 }
-
-button:hover{transform:scale(1.1)}
-
-.yes{
- background:linear-gradient(135deg,#ffb1d0,#ff438c);
- color:#460d28;
- box-shadow:0 0 20px #ff438c66;
+button:hover{transform:scale(1.08);background:#ffb8dc}
+button:active{transform:scale(.94)}
+h1{font-size:clamp(28px,7vw,48px)}
+h2{font-size:clamp(22px,5vw,32px)}
+p{line-height:1.8}
+.page{
+ display:none;min-height:100vh;padding:35px 17px;
+ align-items:center;justify-content:center;flex-direction:column;
+ animation:appear .6s ease;
 }
-
-.no{
- background:#ffffff20;
- color:white;
- border:1px solid #ffffff80;
+.page.active{display:flex}
+.panel{
+ width:min(520px,94vw);padding:28px 20px;
+ background:#ffffff17;border:1px solid #ffffff35;
+ border-radius:28px;backdrop-filter:blur(12px);
+ box-shadow:0 15px 50px #0004;
 }
-
-.next{
- background:#ff438c;
- color:white;
-}
-
-.hidden{display:none!important}
-
-/* YES PAGE */
-
-#yesPage,#yesLast{
- position:relative;
- z-index:2;
-}
-
-/* NO PAGE */
-
-#noPage{
- position:fixed;
- inset:0;
- display:grid;
- place-items:center;
- background:radial-gradient(circle,#8e174b,#350d34,#090711);
- overflow:hidden;
- text-align:center;
-}
-
-#rain{
- position:absolute;
- inset:0;
- overflow:hidden;
- pointer-events:none;
-}
-
-.fall{
- position:absolute;
- top:-100px;
- color:#ff9cbe;
- font-weight:800;
- white-space:nowrap;
- text-shadow:0 0 12px #ff176b,0 0 25px #ff176b;
- animation:fall linear infinite;
-}
-
-@keyframes fall{
- to{transform:translateY(120vh) rotate(360deg)}
-}
-
-.floatHeart{
- position:absolute;
- bottom:-60px;
- color:#ff438c;
- text-shadow:0 0 20px #ff176b;
- animation:rise linear infinite;
-}
-
-@keyframes rise{
- to{
-  transform:translateY(-120vh) rotate(360deg);
-  opacity:0;
- }
-}
-
-.center{
- position:relative;
- z-index:3;
- width:100%;
- padding:15px;
-}
-
-.bigHeart{
- font-size:clamp(180px,45vw,320px);
- line-height:1;
- color:#ff285f;
- text-shadow:
- 0 0 15px #ff285f,
- 0 0 45px #ff174f,
- 0 0 100px #ff176b,
- 0 0 150px #ff438c;
+.small{opacity:.8;font-size:13px}
+.bigheart{
+ font-size:110px;display:inline-block;
+ filter:drop-shadow(0 0 25px #ff70bd);
  animation:beat 1s infinite;
 }
-
-.center h2{
- font-family:'Playfair Display',serif;
- font-size:clamp(26px,7vw,48px);
- text-shadow:0 0 20px #ff1b70;
+.title{font-family:Pacifico,cursive;color:#ffb8dc}
+.pink{color:#ffb8dc}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{
+ padding:18px 8px;border-radius:18px;
+ background:#ffffff20;border:1px solid #ffffff30;
+ cursor:pointer;transition:.3s;
 }
-
-.center p{
- font-weight:800;
- font-size:clamp(12px,3.5vw,18px);
+.tile:hover{background:#ff9bdc44;transform:translateY(-5px)}
+.tile.done{background:#ff9bdc55;border-color:#ffb8dc}
+.bar{height:10px;background:#ffffff25;border-radius:20px;overflow:hidden;margin:15px 0}
+.bar div{height:100%;width:0;background:#ff9bdc;transition:.3s}
+.fall{
+ position:fixed;top:-30px;pointer-events:none;
+ animation:fall linear forwards;z-index:10;
 }
-
-@media(max-width:400px){
- .panel{padding:28px 16px}
- button{padding:13px 24px}
+.letter{
+ background:#fff1fa;color:#673b5d;border-radius:20px;
+ padding:22px;text-align:left;line-height:1.9;
 }
+.memory{
+ font-size:65px;min-height:110px;
+ display:flex;align-items:center;justify-content:center;
+}
+.counter{font-size:30px;font-weight:800;color:#ffb8dc}
+#toast{
+ position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+ background:#fff;color:#683b5c;padding:12px 20px;
+ border-radius:30px;display:none;z-index:30;
+}
+@keyframes beat{50%{transform:scale(1.18)}}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+@keyframes wiggle{25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+.wiggle{animation:wiggle .4s}
 </style>
 </head>
-
 <body>
 
-<!-- HALAMAN UTAMA -->
+<audio id="song" src="ssstik.io_1793708472255.mp3" loop></audio>
+<div id="toast"></div>
 
-<section id="start" class="panel">
-
- <div>♡ A LITTLE QUESTION FOR YOU ♡</div>
-
- <div class="heart">💗</div>
-
- <h1>Do you love me?</h1>
-
- <p>
- Be honest with me...
- I have something special for you.
- </p>
-
- <button class="yes" onclick="chooseYes()">
- YES ♡
- </button>
-
- <button class="no" onclick="chooseNo()">
- NO
- </button>
-
- <p>made with too much love ✦</p>
-
-</section>
-
-
-<!-- JIKA MEMILIH YES -->
-
-<section id="yesPage" class="panel hidden">
-
- <div class="heart">💞</div>
-
- <h1>I KNEW IT!</h1>
-
- <p>
- You're my favorite person.
- <br><br>
- If I had to choose again,
- I would still choose you.
- <br><br>
- I love your smile, your laugh,
- your random stories, and every little
- thing that makes you YOU.
- <br><br>
- YOU ARE MY FAVORITE NOTIFICATION. ♡
- </p>
-
- <button class="next" onclick="nextPage()">
- NEXT, MY LOVE ✨
- </button>
-
-</section>
-
-
-<!-- HALAMAN YES KEDUA -->
-
-<section id="yesLast" class="panel hidden">
-
- <div class="heart">❤️‍🔥</div>
-
- <h1>ONLY YOU</h1>
-
- <p>
- I want to be the reason behind your smile.
- <br><br>
- I want to hear your random stories.
- <br><br>
- I want to make beautiful memories with you.
- <br><br>
- Every day, every moment,
- I will keep choosing you.
- <br><br>
- <b>I LOVE YOU MORE THAN WORDS CAN SAY.</b>
- </p>
-
- <button class="next" onclick="home()">
- REPLAY ♡
- </button>
-
-</section>
-
-
-<!-- JIKA MEMILIH NO -->
-
-<section id="noPage" class="hidden">
-
- <div id="rain"></div>
-
- <div class="center">
-
-  <div class="bigHeart">♥</div>
-
-  <h2>KENAPA NO SAYANG?</h2>
-
-  <p>
-   AKU TIDAK INGIN BIARKAN KAU PERGI ♡
-  </p>
-
-  <button class="no" onclick="home()">
-   COBA PILIH LAGI? ↻
-  </button>
-
+<!-- PEMBUKA -->
+<section class="page active" id="p0">
+ <div class="panel">
+  <div class="bigheart">💗</div>
+  <h1 class="title">Hey, You!</h1>
+  <p>Aku punya sesuatu yang mau aku tanyain...</p>
+  <p class="small">Jawab dengan jujur yaa ♡</p>
+  <button onclick="go(1)">BUKA PESAN 💌</button>
  </div>
-
 </section>
 
+<!-- PERTANYAAN -->
+<section class="page" id="p1">
+ <div class="panel">
+  <div class="bigheart">💗</div>
+  <h1>Do You Love Me?</h1>
+  <p>A little question from someone who thinks about you.</p>
+  <button onclick="go(2);music()">YESSS 💗</button>
+  <button onclick="noPage()">NO 😒</button>
+ </div>
+</section>
 
-<!-- AUDIO -->
+<!-- YES 1 -->
+<section class="page" id="p2">
+ <div class="panel">
+  <h1 class="title">How Much? ♡</h1>
+  <p>Seberapa besar rasa sayang kamu?</p>
+  <button onclick="choose('INFINITE LOVE ♾️')">INFINITE ♾️</button>
+  <button onclick="choose('MORE THAN THE UNIVERSE 🌌')">LEBIH DARI SEMESTA 🌌</button>
+  <button onclick="choose('CAN’T EVEN COUNT 💗')">GAK BISA DIHITUNG 💗</button>
+  <p id="choice1" class="pink"></p>
+  <button onclick="go(3)">LANJUT →</button>
+ </div>
+</section>
 
-<audio
- id="song"
- src="ssstik.io_1793708472255.mp3"
- preload="auto">
-</audio>
+<!-- YES 2 -->
+<section class="page" id="p3">
+ <div class="panel">
+  <h1>Why Do You Love Me?</h1>
+  <p>Pilih semua yang menurut kamu benar!</p>
+  <div class="grid">
+   <div class="tile" onclick="toggle(this)">♡ Karena aku lucu</div>
+   <div class="tile" onclick="toggle(this)">♡ Karena aku menyenangkan</div>
+   <div class="tile" onclick="toggle(this)">♡ Karena aku unik</div>
+   <div class="tile" onclick="toggle(this)">♡ Karena aku selalu ada</div>
+   <div class="tile" onclick="toggle(this)">♡ Karena aku perhatian</div>
+   <div class="tile" onclick="toggle(this)">♡ Karena aku adalah aku</div>
+  </div>
+  <button onclick="go(4)">UDAH PILIH? 💞</button>
+ </div>
+</section>
 
+<!-- YES 3 -->
+<section class="page" id="p4">
+ <div class="panel">
+  <h1 class="title">Little Surprises 🎁</h1>
+  <p>Buka semua kotaknya satu per satu!</p>
+  <div class="grid">
+   <div class="tile" onclick="gift(this,'Kamu itu spesial, jangan pernah lupa! 💗')">🎁 BOX 1</div>
+   <div class="tile" onclick="gift(this,'Aku suka setiap momen kecil bersama kamu! 🌷')">🎁 BOX 2</div>
+   <div class="tile" onclick="gift(this,'Kamu berhasil bikin hari biasa jadi istimewa! ✨')">🎁 BOX 3</div>
+   <div class="tile" onclick="gift(this,'Kalau ada kamu, rasanya lebih menyenangkan! 🧸')">🎁 BOX 4</div>
+   <div class="tile" onclick="gift(this,'Terima kasih sudah menjadi diri kamu sendiri! 💌')">🎁 BOX 5</div>
+   <div class="tile" onclick="gift(this,'ONE BIG KISS... eh, satu hati besar buat kamu! 💋')">🎁 BOX 6</div>
+  </div>
+  <p id="giftText" class="pink"></p>
+  <button onclick="go(5)">NEXT SURPRISE →</button>
+ </div>
+</section>
+
+<!-- YES 4 -->
+<section class="page" id="p5">
+ <div class="panel">
+  <h1>Collect My Love 💗</h1>
+  <p>Tekan tombol di bawah sampai terkumpul 10 hati!</p>
+  <div class="counter"><span id="count">0</span> / 10 💗</div>
+  <div class="bar"><div id="progress"></div></div>
+  <button onclick="collect()">AMBIL HATI 💞</button>
+  <p id="collectText"></p>
+  <button onclick="go(6)">LANJUT →</button>
+ </div>
+</section>
+
+<!-- YES 5 -->
+<section class="page" id="p6">
+ <div class="panel">
+  <h1 class="title">A Letter For You 💌</h1>
+  <p>Kayaknya ada surat khusus buat kamu...</p>
+  <button onclick="document.getElementById('letter').style.display='block';this.style.display='none'">OPEN MY LETTER</button>
+  <div id="letter" class="letter" style="display:none">
+   Dear you,<br><br>
+   Aku mungkin nggak selalu bisa menjelaskan semuanya dengan kata-kata.
+   Tapi aku mau kamu tahu kalau kehadiran kamu itu berarti.
+   Terima kasih sudah membuat banyak hal terasa lebih berwarna.
+   Jangan lupa bahagia, jangan lupa tersenyum, dan jangan lupa kalau kamu berharga.<br><br>
+   With lots of love,<br>
+   Someone who adores you. ♡
+  </div>
+  <button onclick="go(7)">NEXT 💗</button>
+ </div>
+</section>
+
+<!-- YES 6 -->
+<section class="page" id="p7">
+ <div class="panel">
+  <h1>Our Little Gallery 📸</h1>
+  <p>Bayangkan ini album kecil kita!</p>
+  <div class="memory" id="memory">🌷</div>
+  <h2 id="memoryTitle">A little happiness</h2>
+  <p id="memoryDesc">Hal-hal kecil yang bikin bahagia.</p>
+  <button onclick="nextMemory()">NEXT MEMORY →</button>
+  <button onclick="go(8)">LANJUT 💞</button>
+ </div>
+</section>
+
+<!-- YES 7 -->
+<section class="page" id="p8">
+ <div class="panel">
+  <h1 class="title">A Little Quiz 🧸</h1>
+  <p id="question">Kalau aku lagi sedih, kamu bakal...</p>
+  <div id="answers">
+   <button onclick="quiz('Kasih semangat! 💗')">Kasih semangat 💗</button>
+   <button onclick="quiz('Temani sampai lebih baik! 🫶')">Temani aku 🫶</button>
+   <button onclick="quiz('Bikin aku tertawa! 🌷')">Bikin tertawa 🌷</button>
+  </div>
+  <p id="quizResult" class="pink"></p>
+  <button onclick="go(9)">NEXT →</button>
+ </div>
+</section>
+
+<!-- YES 8 -->
+<section class="page" id="p9">
+ <div class="panel">
+  <h1>Virtual Hugs 🫂</h1>
+  <div class="bigheart">🧸</div>
+  <p>Butuh pelukan? Pencet tombolnya!</p>
+  <div class="counter" id="hugCount">0 hugs</div>
+  <button onclick="hug()">SEND A HUG 🫂</button>
+  <p id="hugText">Pelukan virtual buat kamu!</p>
+  <button onclick="go(10)">LANJUT 💗</button>
+ </div>
+</section>
+
+<!-- YES 9 -->
+<section class="page" id="p10">
+ <div class="panel">
+  <h1 class="title">Choose Our Promise ♡</h1>
+  <p>Pilih satu janji manis!</p>
+  <div class="grid">
+   <div class="tile" onclick="promise(this,'Saling menghargai dan mendengarkan. 💗')">💗 Saling menghargai</div>
+   <div class="tile" onclick="promise(this,'Selalu jujur satu sama lain. 🌷')">🌷 Selalu jujur</div>
+   <div class="tile" onclick="promise(this,'Tetap jadi diri sendiri. ✨')">✨ Jadi diri sendiri</div>
+   <div class="tile" onclick="promise(this,'Selalu mendukung hal baik. 🧸')">🧸 Saling mendukung</div>
+  </div>
+  <p id="promiseText" class="pink"></p>
+  <button onclick="go(11)">FINAL SURPRISE →</button>
+ </div>
+</section>
+
+<!-- YES 10 -->
+<section class="page" id="p11">
+ <div class="panel">
+  <h1>ONE LAST THING...</h1>
+  <div class="bigheart">💖</div>
+  <p>Kalau kamu sampai di sini, berarti kamu sudah melewati semua kejutan!</p>
+  <button onclick="go(12);finalRain()">CLICK FOR THE FINAL SURPRISE ✨</button>
+ </div>
+</section>
+
+<!-- FINAL -->
+<section class="page" id="p12">
+ <div class="panel">
+  <div class="bigheart">💗</div>
+  <h1 class="title">I LOVEEE YOUUU!!</h1>
+  <h2>YOU ARE SO SPECIAL ♡</h2>
+  <p>Terima kasih sudah membuka semua pesan ini.</p>
+  <p>Sending you endless love, hugs, and happiness! 💞</p>
+  <button onclick="finalRain()">MORE LOVE!! 💗</button>
+  <button onclick="go(1)">ULANG DARI AWAL ↻</button>
+ </div>
+</section>
+
+<!-- NO -->
+<section class="page" id="noPage">
+ <div class="panel">
+  <div class="bigheart">💔</div>
+  <h1 class="title">SAYANG? KAMU TIDAK MENCINTAIKU?</h1>
+  <h1>I LOVEEE YOUU!!</h1>
+  <p>KENAPAAA NOOO? 😭💗</p>
+  <p>PLEASE CLICK YESSS!!</p>
+  <button onclick="go(2);music()">IYA DEH, YES 💗</button>
+  <button onclick="moreLove()">TETAP NO 😭</button>
+  <button onclick="go(1)">BALIK</button>
+ </div>
+</section>
 
 <script>
-
-// DAFTAR HALAMAN
-
-const pages=[
- "start",
- "yesPage",
- "yesLast",
- "noPage"
+let hearts=0,hugs=0,mem=0,quizCount=0;
+const memories=[
+ ["🌷","A little happiness","Hal sederhana yang terasa istimewa."],
+ ["🌙","Late night talks","Cerita random yang nggak ada habisnya."],
+ ["🧸","Comfort person","Seseorang yang bikin nyaman."],
+ ["💗","Favorite person","Seseorang yang selalu punya tempat spesial."]
 ];
 
-
-// PINDAH HALAMAN
-
-function show(id){
-
- pages.forEach(page=>{
-
-  document
-  .getElementById(page)
-  .classList.toggle("hidden",page!==id);
-
- });
-
+function go(n){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById('p'+n)?.classList.add('active');
+ window.scrollTo(0,0);
 }
-
-
-// TOMBOL YES
-
-function chooseYes(){
-
- show("yesPage");
-
+function music(){
+ const a=document.getElementById('song');
+ a.play().catch(()=>showToast('Tekan layar sekali lagi untuk memutar musik 🎵'));
 }
-
-
-// NEXT YES
-
-function nextPage(){
-
- show("yesLast");
-
+function showToast(t){
+ const e=document.getElementById('toast');
+ e.textContent=t;e.style.display='block';
+ setTimeout(()=>e.style.display='none',2200);
 }
-
-
-// TOMBOL NO
-
-function chooseNo(){
-
- show("noPage");
-
- makeRain();
-
- const song=document.getElementById("song");
-
- song.currentTime=0;
-
- song.play().catch(()=>{
-  console.log("Audio playback dibatasi browser.");
- });
-
+function choose(t){
+ document.getElementById('choice1').textContent=t+' 💗';
+ rain(8);
 }
-
-
-// KEMBALI KE AWAL
-
-function home(){
-
- const song=document.getElementById("song");
-
- song.pause();
-
- song.currentTime=0;
-
- show("start");
-
+function toggle(e){e.classList.toggle('done');}
+function gift(e,t){
+ e.classList.add('done');
+ e.textContent='💖 OPENED';
+ document.getElementById('giftText').textContent=t;
+ rain(5);
 }
-
-
-// ANIMASI TULISAN JATUH
-
-function makeRain(){
-
- const rain=document.getElementById("rain");
-
- if(rain.dataset.ready)return;
-
- rain.dataset.ready="yes";
-
- const words=[
-
-  "LOVE YOUU",
-
-  "KENAPA NO SAYANG?",
-
-  "AKU TIDAK INGIN BIARKAN KAU PERGI",
-
-  "LOVE YOU ♡",
-
-  "SAYANGGG",
-
-  "I LOVE YOU",
-
-  "PLEASE SAY YES",
-
-  "LOVE YOU MORE",
-
-  "YOU ARE MINE ♡"
-
- ];
-
-
- // TULISAN BERJATUHAN
-
- for(let i=0;i<65;i++){
-
-  const el=document.createElement("div");
-
-  el.className="fall";
-
-  el.textContent=
-  words[i%words.length];
-
-  el.style.left=
-  Math.random()*100+"%";
-
-  el.style.animationDuration=
-  (5+Math.random()*8)+"s";
-
-  el.style.animationDelay=
-  (-Math.random()*12)+"s";
-
-  el.style.fontSize=
-  (12+Math.random()*14)+"px";
-
-  rain.appendChild(el);
-
+function collect(){
+ if(hearts<10)hearts++;
+ document.getElementById('count').textContent=hearts;
+ document.getElementById('progress').style.width=(hearts*10)+'%';
+ document.getElementById('collectText').textContent=
+ hearts===10?'YEAY! 10 HATI BUAT KAMU!! 💗':'SATU HATI LAGI BUAT KAMU! 💞';
+ rain(3);
+}
+function nextMemory(){
+ mem=(mem+1)%memories.length;
+ document.getElementById('memory').textContent=memories[mem][0];
+ document.getElementById('memoryTitle').textContent=memories[mem][1];
+ document.getElementById('memoryDesc').textContent=memories[mem][2];
+}
+function quiz(t){
+ quizCount++;
+ document.getElementById('quizResult').textContent='AWWW! '+t;
+ rain(4);
+}
+function hug(){
+ hugs++;
+ document.getElementById('hugCount').textContent=hugs+' hugs';
+ document.getElementById('hugText').textContent=
+ hugs<5?'ONE MORE HUG!! 🫂':'YOU DESERVE ALL THE HUGS!! 💗';
+ rain(4);
+}
+function promise(e,t){
+ document.querySelectorAll('#p10 .tile').forEach(x=>x.classList.remove('done'));
+ e.classList.add('done');
+ document.getElementById('promiseText').textContent=t;
+}
+function rain(amount=18){
+ const items=['💗','💕','💖','💘','LOVE','♡'];
+ for(let i=0;i<amount;i++){
+  let x=document.createElement('div');
+  x.className='fall';
+  x.textContent=items[Math.floor(Math.random()*items.length)];
+  x.style.left=Math.random()*100+'vw';
+  x.style.fontSize=(15+Math.random()*25)+'px';
+  x.style.animationDuration=(3+Math.random()*4)+'s';
+  document.body.appendChild(x);
+  setTimeout(()=>x.remove(),7500);
  }
-
-
- // LOVE BERTERBANGAN
-
- for(let i=0;i<30;i++){
-
-  const el=document.createElement("div");
-
-  el.className="floatHeart";
-
-  el.textContent="♥";
-
-  el.style.left=
-  Math.random()*100+"%";
-
-  el.style.animationDuration=
-  (6+Math.random()*8)+"s";
-
-  el.style.animationDelay=
-  (-Math.random()*12)+"s";
-
-  el.style.fontSize=
-  (20+Math.random()*35)+"px";
-
-  rain.appendChild(el);
-
- }
-
 }
-
+function finalRain(){rain(60);}
+function noPage(){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById('noPage').classList.add('active');
+ music();rain(45);
+}
+function moreLove(){
+ rain(80);
+ showToast('KENAPA NO SAYANG? I LOVEEE YOUUU!! 💗');
+}
+setInterval(()=>{if(document.getElementById('noPage').classList.contains('active'))rain(2)},1500);
 </script>
-
 </body>
 </html>
