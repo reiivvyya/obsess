@@ -1,148 +1,163 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Do You Love Me? 💗</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OBSESSED WITH YOU ❤️</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Playfair+Display:wght@700&family=Poppins:wght@400;600;800&display=swap');
 
 *{box-sizing:border-box}
 
 body{
  margin:0;
- min-height:100vh;
- overflow:hidden;
- font-family:Poppins,sans-serif;
+ background:#080808;
  color:white;
- background:radial-gradient(circle at center,#48132f,#170817 65%,#08050d);
+ font-family:Poppins,sans-serif;
+ overflow:hidden;
 }
 
-#stars{
- position:fixed;
- inset:0;
- background-image:radial-gradient(white 1px,transparent 1px);
- background-size:35px 35px;
- opacity:.25;
- pointer-events:none;
+button{
+ cursor:pointer;
+ border:0;
+ border-radius:40px;
+ padding:15px 27px;
+ margin:7px;
+ font-weight:900;
+ font-size:14px;
+ transition:.3s;
 }
+
+button:hover{
+ transform:scale(1.1) translateY(-4px);
+}
+
+.hidden{display:none!important}
 
 .page{
- min-height:100vh;
+ position:fixed;
+ inset:0;
  display:flex;
- justify-content:center;
  align-items:center;
+ justify-content:center;
  padding:20px;
+ text-align:center;
  perspective:1000px;
 }
 
 .card{
  width:min(100%,550px);
- padding:40px 25px;
- text-align:center;
- border:1px solid #ff8bbd55;
- border-radius:30px;
- background:linear-gradient(145deg,#ffffff20,#ffffff05);
- box-shadow:0 25px 70px #0009,0 0 35px #ff176d30;
- backdrop-filter:blur(15px);
- animation:appear 1s ease;
+ padding:40px 24px;
+ border-radius:25px;
+ background:linear-gradient(145deg,#242424,#090909);
+ border:1px solid #ff303055;
+ box-shadow:0 0 40px #ff000022,0 25px 80px #000;
+ animation:enter 1s ease;
 }
 
-@keyframes appear{
- from{opacity:0;transform:rotateX(20deg) translateY(50px)}
- to{opacity:1;transform:rotateX(0) translateY(0)}
+@keyframes enter{
+ from{opacity:0;transform:rotateX(20deg) translateY(40px)}
+ to{opacity:1;transform:none}
 }
 
 h1{
  font-family:'Playfair Display',serif;
- font-size:clamp(38px,9vw,65px);
- text-shadow:0 0 25px #ff4f91;
+ font-size:clamp(40px,10vw,65px);
 }
 
-p{line-height:1.8;color:#ffd6e7}
-
-button{
- border:none;
- padding:15px 32px;
- border-radius:40px;
- font-size:16px;
- font-weight:800;
- cursor:pointer;
- margin:8px;
- transition:.3s;
+.red{
+ color:#ff2020;
+ text-shadow:0 0 15px red,0 0 40px #ff0000;
 }
 
-button:hover{transform:scale(1.12) translateY(-4px)}
-
-.yes{
- background:linear-gradient(135deg,#ffc9df,#ff579b);
- color:#570d31;
- box-shadow:0 0 25px #ff579b;
-}
-
-.no{
- background:#ffffff18;
- border:1px solid #ffb5d2;
+.white{
  color:white;
 }
 
-.hidden{display:none!important}
+.yesBtn{
+ background:linear-gradient(135deg,#ff7777,#ff1111);
+ color:white;
+ box-shadow:0 0 25px red;
+}
 
-#yesPage,#noPage{
- position:fixed;
- inset:0;
- display:flex;
- justify-content:center;
- align-items:center;
- text-align:center;
- padding:20px;
- overflow:hidden;
+.noBtn{
+ background:#222;
+ color:white;
+ border:1px solid #ff3333;
+}
+
+.action{
+ background:#ff1515;
+ color:white;
+ box-shadow:0 0 20px red;
+}
+
+#yesPage{
+ background:radial-gradient(circle,#300000,#080808 70%);
 }
 
 #noPage{
- background:radial-gradient(circle,#50132e,#190817 65%,#08040b);
+ background:#000;
+ overflow:hidden;
 }
 
-.bigHeart{
+#noPage .content{
+ position:relative;
+ z-index:5;
+ width:100%;
+ max-width:700px;
+}
+
+.heart{
  font-size:clamp(150px,40vw,270px);
+ color:red;
  line-height:1;
- filter:drop-shadow(0 0 15px #ff176d)
-        drop-shadow(0 0 35px #ff176d)
-        drop-shadow(0 0 70px #ff315c);
- animation:beat 1s infinite;
  cursor:pointer;
+ filter:drop-shadow(0 0 15px red)
+        drop-shadow(0 0 40px red)
+        drop-shadow(0 0 80px #ff0000);
+ animation:heartbeat 1s infinite;
 }
 
-@keyframes beat{
+@keyframes heartbeat{
  0%,100%{transform:scale(1)}
- 15%{transform:scale(1.15)}
+ 15%{transform:scale(1.16)}
  30%{transform:scale(1)}
  45%{transform:scale(1.1)}
 }
 
 .noTitle{
- font-size:clamp(32px,8vw,58px);
- font-family:'Playfair Display',serif;
- color:#ffd5e5;
- text-shadow:0 0 15px #ff176d,0 0 40px #ff176d;
- animation:glow 1.5s infinite alternate;
+ font-family:Orbitron,sans-serif;
+ font-size:clamp(26px,7vw,48px);
+ color:#ff1717;
+ text-shadow:0 0 15px red,0 0 40px red;
+ animation:glow 1.2s infinite alternate;
 }
 
 @keyframes glow{
- to{text-shadow:0 0 30px #ff176d,0 0 70px #ff176d}
+ to{ text-shadow:0 0 25px red,0 0 65px #ff0000}
 }
 
-.falling{
- position:fixed;
- top:-70px;
- white-space:nowrap;
- pointer-events:none;
+.noText{
+ color:#ff5555;
  font-weight:800;
- color:#ffb7d2;
- text-shadow:0 0 12px #ff176d;
+ line-height:2;
+ text-shadow:0 0 12px red;
+}
+
+.fall{
+ position:fixed;
+ top:-60px;
+ white-space:nowrap;
+ color:#ff2222;
+ font-family:Orbitron,sans-serif;
+ font-weight:900;
+ text-shadow:0 0 10px red,0 0 25px red;
+ pointer-events:none;
+ z-index:3;
  animation:fall linear forwards;
- z-index:2;
 }
 
 @keyframes fall{
@@ -152,116 +167,146 @@ button:hover{transform:scale(1.12) translateY(-4px)}
  }
 }
 
-.floatingHeart{
+.float{
  position:fixed;
- bottom:-60px;
- pointer-events:none;
+ bottom:-70px;
+ color:red;
+ font-size:35px;
+ text-shadow:0 0 20px red;
  animation:floatUp linear forwards;
- z-index:1;
+ pointer-events:none;
+ z-index:2;
 }
 
 @keyframes floatUp{
  to{transform:translateY(-120vh) rotate(360deg);opacity:0}
 }
 
-.noText{
- font-size:clamp(15px,4vw,20px);
- color:#ffe0ed;
- text-shadow:0 0 12px #ff176d;
- line-height:1.9;
+#yesPage .card{
+ border-color:#ff3333;
 }
 
-.action{
- background:linear-gradient(135deg,#ffc6dc,#ff438e);
- color:#5a0b31;
- box-shadow:0 0 25px #ff176d;
+.small{
+ color:#ff9999;
+ font-size:12px;
 }
 
-#musicStatus{font-size:11px;color:#ffc6dc}
+#secret{
+ background:#160000;
+ border:1px solid red;
+ color:white;
+}
 
 </style>
 </head>
 
 <body>
-<div id="stars"></div>
 
-<!-- HALAMAN AWAL -->
-<div class="page" id="home">
+<!-- AUDIO -->
+<audio id="music"
+ src="ssstik.io_1793708472255.mp3"
+ loop preload="auto"></audio>
+
+<!-- HOME -->
+<section class="page" id="home">
  <div class="card">
-  <p>♡ A SPECIAL QUESTION ♡</p>
+  <p class="red">♡ A QUESTION FOR YOU ♡</p>
+
   <h1>Do you love me?</h1>
+
   <p>
-   Aku cuma mau tanya satu hal...<br>
-   Jawab yang jujur, ya? 💗
+   I have something to ask you...<br>
+   Please choose carefully. ❤️
   </p>
 
-  <button class="yes" onclick="chooseYes()">YES ♡</button>
-  <button class="no" onclick="chooseNo()">NO</button>
+  <button class="yesBtn" onclick="chooseYes()">YES ❤️</button>
+  <button class="noBtn" onclick="chooseNo()">NO</button>
 
-  <p>Think carefully, sweetheart.</p>
+  <p class="small">Made with a thousand feelings.</p>
  </div>
-</div>
+</section>
 
-<!-- HALAMAN YES -->
-<div id="yesPage" class="hidden">
+<!-- YES -->
+<section class="page hidden" id="yesPage">
  <div class="card">
-  <div class="bigHeart">💗</div>
-  <h1 id="yesTitle">REALLY?!</h1>
+  <div class="heart">❤️</div>
+
+  <h1 class="red" id="yesTitle">REALLY?!</h1>
+
   <p id="yesMessage">
-   Kamu tahu nggak? Kamu adalah salah satu alasan
-   kenapa hari biasa bisa terasa istimewa.
+   You're my favorite person.
+   I hope you know how special you are.
   </p>
-  <button class="action" onclick="nextYes()">LANJUT LAGI ♡</button>
-  <p id="yesNumber">1 / 7</p>
+
+  <button class="yesBtn" onclick="nextYes()">
+   NEXT MESSAGE ❤️
+  </button>
+
+  <p class="small" id="yesNumber">1 / 7</p>
  </div>
-</div>
+</section>
 
-<!-- HALAMAN NO -->
-<div id="noPage" class="hidden">
- <div style="position:relative;z-index:3;width:100%;max-width:650px">
+<!-- NO -->
+<section class="page hidden" id="noPage">
 
-  <h1 class="noTitle" id="noTitle">KENAPA NO SAYANG?</h1>
+ <div class="content">
 
-  <div class="bigHeart" onclick="moreLove()">💗</div>
+  <h1 class="noTitle" id="noTitle">
+   KENAPA NO SAYANG?
+  </h1>
+
+  <div class="heart" onclick="moreLove()">❤️</div>
 
   <p class="noText">
    AKU TIDAK INGIN BIARKAN KAU PERGI...<br>
    PILIH YES, GUA CINTA SAMA LO!!<br>
-   PLEASE SAY YES, SAYANGGG 💗
+   I LOVE YOU SO MUCH ❤️
   </p>
 
   <button class="action" onclick="moreLove()">
-   PENCET LAGI, SAYANG 💘
+   PENCET LAGI SAYANG ❤️
   </button>
 
-  <p id="loveCounter">LOVE LEVEL: ∞</p>
-  <p id="musicStatus">♫ ANGEL - RADIO EDIT</p>
- </div>
-</div>
+  <br>
 
-<audio id="music"
- src="ssstik.io_1793708472255.mp3"
- loop preload="auto">
-</audio>
+  <button class="noBtn" onclick="secretMessage()">
+   SECRET MESSAGE
+  </button>
+
+  <p id="counter" class="red">
+   LOVE LEVEL: INFINITY
+  </p>
+
+  <p class="small" id="musicStatus">
+   ♫ ANGEL — RADIO EDIT
+  </p>
+
+ </div>
+</section>
 
 <script>
+
 let yesIndex=0;
 let clicks=0;
 
 const yesMessages=[
-"Kamu tahu nggak? Kamu adalah salah satu alasan kenapa hari biasa bisa terasa istimewa. 💗",
+"Kamu adalah salah satu hal terbaik yang pernah hadir dalam hariku. ❤️",
+"Aku suka setiap obrolan kecil kita, bahkan yang nggak penting sekalipun.",
+"Kalau aku bisa memilih notifikasi favorit, pasti notifikasi dari kamu.",
+"Aku ingin menjadi seseorang yang selalu bisa mendengarkan cerita kamu.",
+"Semoga kamu selalu punya alasan untuk tersenyum setiap hari.",
+"YOU ARE MY FAVORITE PERSON. Aku nggak akan bosan bilang itu.",
+"FINAL MESSAGE: I LOVE YOU MORE THAN WORDS CAN SAY. ❤️"
+];
 
-"Aku suka cara kamu membuat hal kecil terasa berarti. Bahkan obrolan random pun bisa jadi kenangan.",
-
-"Kalau aku bisa memilih satu notifikasi yang selalu ingin aku lihat, itu notifikasi dari kamu.",
-
-"Aku mau jadi orang yang mendengarkan cerita kamu, bahkan cerita paling random sekalipun.",
-
-"Kalau dunia sedang terasa berat, semoga kamu ingat kalau kamu berharga dan pantas bahagia.",
-
-"AKU SUKA KAMU. BUKAN CUMA HARI INI, TAPI SETIAP KALI AKU INGAT KAMU. 💞",
-
-"FINAL MESSAGE: YOU ARE MY FAVORITE PERSON. LOVE YOUUU FOREVER!! 💗"
+const yesTitles=[
+"REALLY?!",
+"AWESOME ❤️",
+"MY FAVORITE",
+"ONLY YOU",
+"ALWAYS YOU",
+"I LOVE YOU",
+"FOREVER ❤️"
 ];
 
 function chooseYes(){
@@ -272,61 +317,63 @@ function chooseYes(){
 function nextYes(){
  yesIndex++;
 
- if(yesIndex>=yesMessages.length){
-  yesIndex=0;
- }
+ if(yesIndex>=yesMessages.length) yesIndex=0;
 
+ document.getElementById("yesTitle").innerText=yesTitles[yesIndex];
  document.getElementById("yesMessage").innerText=yesMessages[yesIndex];
- document.getElementById("yesTitle").innerText=
- ["REALLY?!","AWWWW 💗","SWEETEST","MY FAVORITE","ALWAYS YOU","I LOVE YOU","FOREVER ♡"][yesIndex];
-
- document.getElementById("yesNumber").innerText=(yesIndex+1)+" / 7";
+ document.getElementById("yesNumber").innerText=
+ (yesIndex+1)+" / 7";
 }
 
-function fallingText(){
+function makeFall(){
  const words=[
- "LOVE YOUU 💗",
+ "LOVE YOU ❤️",
  "KENAPA NO SAYANG?",
  "PILIH YES, GUA CINTA SAMA LO!!",
- "AKU TIDAK INGIN BIARKAN KAU PERGI",
- "I LOVE YOU",
- "ONLY YOU ♡",
  "JANGAN PERGI",
- "YOU ARE MINE? ♡",
- "SAYANGGG",
- "LOVE LOVE LOVE",
+ "I LOVE YOU",
+ "ONLY YOU",
+ "AKU TIDAK INGIN BIARKAN KAU PERGI",
+ "YOU ARE MY FAVORITE",
+ "SAYANGGG ❤️",
+ "OBSESSED WITH YOU",
  "PLEASE SAY YES"
  ];
 
- const el=document.createElement("div");
- el.className="falling";
+ let el=document.createElement("div");
+ el.className="fall";
  el.innerText=words[Math.floor(Math.random()*words.length)];
+
  el.style.left=Math.random()*95+"vw";
- el.style.fontSize=(13+Math.random()*16)+"px";
+ el.style.fontSize=(12+Math.random()*19)+"px";
  el.style.animationDuration=(3+Math.random()*5)+"s";
 
  document.body.appendChild(el);
+
  setTimeout(()=>el.remove(),9000);
 }
 
-function floatingHeart(){
- const el=document.createElement("div");
- el.className="floatingHeart";
- el.innerText=["💗","💖","💕","❤️","💘"][Math.floor(Math.random()*5)];
+function makeFloat(){
+ let el=document.createElement("div");
+ el.className="float";
+ el.innerText=["❤️","💗","♥","💕"][Math.floor(Math.random()*4)];
+
  el.style.left=Math.random()*100+"vw";
- el.style.fontSize=(20+Math.random()*35)+"px";
  el.style.animationDuration=(4+Math.random()*5)+"s";
 
  document.body.appendChild(el);
+
  setTimeout(()=>el.remove(),10000);
 }
 
 function burst(){
- for(let i=0;i<25;i++){
-  setTimeout(fallingText,i*50);
-  setTimeout(floatingHeart,i*70);
+ for(let i=0;i<35;i++){
+  setTimeout(makeFall,i*45);
+  setTimeout(makeFloat,i*65);
  }
 }
+
+let rainInterval=null;
 
 function chooseNo(){
  document.getElementById("home").classList.add("hidden");
@@ -334,19 +381,21 @@ function chooseNo(){
 
  burst();
 
- setInterval(()=>{
-  fallingText();
-  if(Math.random()>.4)floatingHeart();
- },180);
+ if(!rainInterval){
+  rainInterval=setInterval(()=>{
+   makeFall();
+   if(Math.random()>.4)makeFloat();
+  },160);
+ }
 
- const music=document.getElementById("music");
+ let audio=document.getElementById("music");
 
- music.play().then(()=>{
+ audio.play().then(()=>{
   document.getElementById("musicStatus").innerText=
-  "♫ NOW PLAYING — ANGEL RADIO EDIT";
+  "♫ NOW PLAYING — ANGEL RADIO EDIT ❤️";
  }).catch(()=>{
   document.getElementById("musicStatus").innerText=
-  "Tekan layar sekali lagi untuk memulai musik ♡";
+  "Tekan layar sekali lagi untuk memulai musik.";
  });
 }
 
@@ -355,29 +404,41 @@ function moreLove(){
 
  burst();
 
- document.getElementById("loveCounter").innerText=
- "LOVE LEVEL: ∞ × "+clicks;
-
  const titles=[
  "KENAPA NO SAYANG?",
- "YAKIN BANGET NO NIH?",
- "PLEASE SAY YESSS!!",
- "GUA CINTA SAMA LO!!",
- "JANGAN PERGI SAYANG 💗",
- "YOU'RE MY FAVORITE",
- "I STILL LOVE YOUUU"
+ "YAKIN NO NIH?!",
+ "PILIH YES, GUA CINTA SAMA LO!!",
+ "PLEASE SAY YES ❤️",
+ "AKU MASIH DI SINI",
+ "LOVE YOU MORE",
+ "JANGAN PERGI DULU"
  ];
 
  document.getElementById("noTitle").innerText=
  titles[clicks%titles.length];
 
- document.querySelector(".bigHeart").animate([
+ document.getElementById("counter").innerText=
+ "LOVE LEVEL: ∞ × "+clicks;
+
+ document.querySelector("#noPage .heart").animate([
   {transform:"scale(1)"},
   {transform:"scale(1.35)"},
   {transform:"scale(1)"}
  ],{duration:500});
 }
-</script>
 
+function secretMessage(){
+ const messages=[
+ "SECRET: You're someone worth appreciating. ❤️",
+ "Psst... I hope you smile today.",
+ "A thousand hearts, one favorite person.",
+ "HEY YOU! YOU ARE SPECIAL.",
+ "MY FAVORITE PART OF EVERY DAY IS TALKING TO YOU."
+ ];
+
+ alert(messages[Math.floor(Math.random()*messages.length)]);
+}
+
+</script>
 </body>
 </html>
